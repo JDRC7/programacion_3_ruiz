@@ -36,3 +36,80 @@ console.log(10 * 3);   // 30
 console.log(10 / 3);   // 3.333...
 console.log(10 % 3);   // 1  (resto de la división)
 console.log(2 ** 10);  // 1024  (potencia)
+
+//Boolean
+
+// tipos-boolean.ts
+const mayorDeEdad:  boolean = true;
+const tieneCuenta:  boolean = false;
+
+console.log(mayorDeEdad);
+console.log(!mayorDeEdad);              // false  (negación)
+console.log(mayorDeEdad && tieneCuenta); // false  (ambos deben ser true)
+console.log(mayorDeEdad || tieneCuenta); // true   (al menos uno es true)
+
+// Los booleanos suelen venir de comparaciones
+const edad = 20;
+const esAdulto: boolean = edad >= 18;
+console.log(`¿Es adulto? ${esAdulto}`); // ¿Es adulto? true
+
+
+
+//SALVA VIDAS PARA AGARRAR CUAL QUIER DATO DEL BACKEND
+// tipo-any.ts
+
+let dato: any = "hola";
+dato = 42;        // ✅ sin error
+dato = true;      // ✅ sin error
+dato = [1, 2, 3]; // ✅ sin error
+
+// Parece útil pero es trampa: pierdes el autocompletado
+// y los errores vuelven a aparecer en tiempo de ejecución
+console.log(dato.metodoQueNoExiste()); // TypeScript no avisa, pero falla al ejecutar
+
+
+//DESCONOCINO
+// tipo-unknown.ts
+
+function procesarDato(valor: unknown): string {
+  // No puedo usar valor directamente — debo verificar primero
+
+  if (typeof valor === "string") {
+    // Aquí TypeScript sabe que es string
+    return valor.toUpperCase();
+  }
+
+  if (typeof valor === "number") {
+    // Aquí TypeScript sabe que es number
+    return valor.toFixed(2);
+  }
+
+  if (typeof valor === "boolean") {
+    return valor ? "Sí" : "No";
+  }
+
+  return "Tipo no reconocido";
+}
+
+console.log(procesarDato("hola"));   // HOLA
+console.log(procesarDato(3.14159));  // 3.14
+console.log(procesarDato(true));     // Sí
+console.log(procesarDato(null));     // Tipo no reconocido
+
+//VOID
+// tipo-void.ts
+
+function saludar(nombre: string): void {
+  console.log(`Hola, ${nombre}!`);
+  // No hay return — esta función solo hace algo, no devuelve nada
+}
+
+saludar("Ana");
+
+// Comparación: esto sí devuelve algo
+function duplicar(n: number): number {
+  return n * 2;
+}
+
+const resultado2 = duplicar(5);
+console.log(resultado2); // 10
