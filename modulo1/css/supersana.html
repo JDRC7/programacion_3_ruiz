@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPER SANA - Tienda de Dietética</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f0fdf4;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .cabecera-principal {
+            background-color: #15803d;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+        }
+
+        .cabecera-principal h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        .navegacion {
+            background-color: #166534;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .navegacion a {
+            color: #f0fdf4;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .navegacion a:hover {
+            color: #bbf7d0;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .contenedor-flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tarjeta-producto {
+            background-color: white;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            width: calc(50% - 1rem);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .tarjeta-producto h2 {
+            color: #166534;
+            margin-bottom: 1rem;
+        }
+
+        .tarjeta-producto ul {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        .seccion-tabla {
+            margin-bottom: 3rem;
+        }
+
+        .tabla-datos {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .tabla-datos th, .tabla-datos td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .tabla-datos th {
+            background-color: #22c55e;
+            color: white;
+        }
+
+        .seccion-formulario {
+            margin-bottom: 2rem;
+        }
+
+        .panel-interactivo {
+            background-color: #dcfce7;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 5px solid #15803d;
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+        }
+
+        .panel-interactivo label {
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #166534;
+        }
+
+        .panel-interactivo input {
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            border: 1px solid #86efac;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .btn-accion {
+            background-color: #15803d;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-accion:hover {
+            background-color: #166534;
+        }
+
+        .mensaje-alerta {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .pie-pagina {
+            background-color: #1f2937;
+            color: #d1d5db;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecera-principal">
+        <h1>SUPER SANA</h1>
+        <p>Tu tienda de nutrición y bienestar integral</p>
+    </header>
+
+    <nav class="navegacion">
+        <a href="#productos">Catálogo Natural</a>
+        <a href="#estadisticas">Tabla Nutricional</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <main>
+        <section id="productos" class="contenedor-flex">
+            <article class="tarjeta-producto">
+                <h2>Miel de Abeja 100% Pura</h2>
+                <p>Directo de los valles a tu mesa. Presentaciones ideales para surtir tu abasto o consumo personal:</p>
+                <ul>
+                    <li>Frasco de 1 Litro - $12.00</li>
+                    <li>Frasco de 500 ml - $7.00</li>
+                    <li>Frasco de 250 ml - $4.00</li>
+                </ul>
+                <button class="btn-accion">Añadir al Carrito</button>
+            </article>
+
+            <article class="tarjeta-producto">
+                <h2>Avena Orgánica Integral</h2>
+                <p>Rica en fibra, sin gluten y perfecta para desayunos energéticos. Paquete de 1kg.</p>
+                <p><strong>Precio:</strong> $3.50</p>
+                <button class="btn-accion">Añadir al Carrito</button>
+            </article>
+        </section>
+
+        <section id="estadisticas" class="seccion-tabla">
+            <h2>Comparativa de Macronutrientes</h2>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Producto (100g)</th>
+                        <th>Calorías (kcal)</th>
+                        <th>Proteína (g)</th>
+                        <th>Carbohidratos (g)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Miel de Abeja</td>
+                        <td>304</td>
+                        <td>0.3</td>
+                        <td>82.4</td>
+                    </tr>
+                    <tr>
+                        <td>Avena Integral</td>
+                        <td>389</td>
+                        <td>16.9</td>
+                        <td>66.3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="contacto" class="seccion-formulario">
+            <h2>Calculadora de Puntos Super Sana</h2>
+            <div class="panel-interactivo">
+                <label for="nombreCliente">Nombre del Cliente:</label>
+                <input type="text" id="nombreCliente" placeholder="Ej. Josué">
+                
+                <label for="puntosCliente">Puntos Acumulados en Compras:</label>
+                <input type="number" id="puntosCliente" placeholder="Ej. 150">
+                
+                <button id="btnVerificar" class="btn-accion">Verificar Nivel</button>
+                <p id="resultadoNivel" class="mensaje-alerta"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>&copy; 2026 SUPER SANA. Distribuyendo salud natural a tu medida.</p>
+    </footer>
+
+    <script>
+        const btnVerificar = document.getElementById("btnVerificar");
+        const inputNombre = document.getElementById("nombreCliente");
+        const inputPuntos = document.getElementById("puntosCliente");
+        const textoResultado = document.getElementById("resultadoNivel");
+
+        btnVerificar.addEventListener("click", function() {
+            const nombre = inputNombre.value.trim();
+            const puntosCrudos = inputPuntos.value;
+            const puntos = parseInt(puntosCrudos, 10);
+
+            if (!nombre) {
+                textoResultado.textContent = "Error: Por favor ingresa el nombre del cliente.";
+                textoResultado.style.color = "#b91c1c";
+                return; 
+            }
+
+            if (isNaN(puntos) || puntos < 0) {
+                textoResultado.textContent = "Error: La cantidad de puntos no es válida.";
+                textoResultado.style.color = "#b91c1c";
+                return;
+            }
+
+            if (puntos >= 500) {
+                textoResultado.textContent = `¡Categoría Platino! ${nombre}, tienes un 25% de descuento en miel e indumentaria.`;
+                textoResultado.style.color = "#15803d";
+            } else if (puntos >= 200) {
+                textoResultado.textContent = `¡Categoría Oro! ${nombre}, tienes un 15% de descuento en suplementos orgánicos.`;
+                textoResultado.style.color = "#0369a1";
+            } else if (puntos > 0) {
+                const puntosFaltantes = 200 - puntos;
+                textoResultado.textContent = `Cliente Regular. Hola ${nombre}, te faltan ${puntosFaltantes} puntos para alcanzar la Categoría Oro.`;
+                textoResultado.style.color = "#b45309";
+            } else {
+                textoResultado.textContent = `¡Bienvenido a la comunidad Super Sana, ${nombre}! Haz tu primera compra para empezar a acumular.`;
+                textoResultado.style.color = "#4b5563";
+            }
+        });
+    </script>
+</body>
+</html>

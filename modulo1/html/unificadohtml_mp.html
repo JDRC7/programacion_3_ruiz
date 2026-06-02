@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPER SANA - Tienda de Dietética</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="cabecera-principal">
+        <h1>SUPER SANA</h1>
+        <p>Tu tienda de nutrición y bienestar integral</p>
+    </header>
+
+    <nav class="navegacion">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Catálogo Natural</a>
+        <a href="#estadisticas">Tabla Nutricional</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <main>
+        <section id="productos" class="contenedor-flex">
+            <article class="tarjeta-producto">
+                <h2>Miel de Abeja 100% Pura</h2>
+                <p>Directo de los valles a tu mesa. Presentaciones ideales para surtir tu abasto o consumo personal:</p>
+                <ul>
+                    <li>Frasco de 1 Litro - $12.00</li>
+                    <li>Frasco de 500 ml - $7.00</li>
+                    <li>Frasco de 250 ml - $4.00</li>
+                </ul>
+                <button class="btn-accion">Añadir al Carrito</button>
+            </article>
+
+            <article class="tarjeta-producto">
+                <h2>Avena Orgánica Integral</h2>
+                <p>Rica en fibra, sin gluten y perfecta para desayunos energéticos. Paquete de 1kg.</p>
+                <p><strong>Precio:</strong> $3.50</p>
+                <button class="btn-accion">Añadir al Carrito</button>
+            </article>
+        </section>
+
+        <section id="estadisticas" class="seccion-tabla">
+            <h2>Comparativa de Macronutrientes</h2>
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Producto (100g)</th>
+                        <th>Calorías (kcal)</th>
+                        <th>Proteína (g)</th>
+                        <th>Carbohidratos (g)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Miel de Abeja</td>
+                        <td>304</td>
+                        <td>0.3</td>
+                        <td>82.4</td>
+                    </tr>
+                    <tr>
+                        <td>Avena Integral</td>
+                        <td>389</td>
+                        <td>16.9</td>
+                        <td>66.3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="contacto" class="seccion-formulario">
+            <h2>Calculadora de Puntos Super Sana</h2>
+            <div class="panel-interactivo">
+                <label for="nombreCliente">Nombre del Cliente:</label>
+                <input type="text" id="nombreCliente" placeholder="Ej. Josué">
+                
+                <label for="puntosCliente">Puntos Acumulados en Compras:</label>
+                <input type="number" id="puntosCliente" placeholder="Ej. 150">
+                
+                <button id="btnVerificar" class="btn-accion">Verificar Nivel</button>
+                
+                <p id="resultadoNivel" class="mensaje-alerta"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>&copy; 2026 SUPER SANA. Distribuyendo salud natural en Quito y sus alrededores.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
