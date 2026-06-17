@@ -1,33 +1,50 @@
+// src/App.tsx
 
-import ProductCard from './components/ProductCard'
-
-interface Product {
-  id: number
-  name: string
-  price: number
-  outOfStock?: boolean
-}
-
-const catalog: Product[] = [
-  { id: 1, name: 'Teclado mecánico',  price: 89.99 },
-  { id: 2, name: 'Monitor 27"',       price: 349.99 },
-  { id: 3, name: 'Mouse inalámbrico', price: 29.99, outOfStock: true },
-  { id: 4, name: 'Webcam HD',         price: 59.99 },
-]
+import AnimalesLista from './components/animalesLista'
 
 export default function App() {
-  return (
-    <main style={{ maxWidth: 540, margin: '40px auto', fontFamily: 'sans-serif' }}>
+  // Creamos el Array de Objetos con los animales que queremos mostrar
+  const listaDeMascotas = [
+    {
+      id: 1,
+      name: 'Firulais',
+      tipo: 'Perro',
+      edad: 3,         // Tipo: number
+      price: 45.00     // Tipo: number
+    },
+    {
+      id: 2,
+      name: 'Michi',
+      tipo: 'Gato',
+      edad: 1,         // Tipo: number
+      price: 30.50     // Tipo: number
+    },
+    {
+      id: 3,
+      name: 'Paco',
+      tipo: 'Ave',
+      edad: 2,         // Tipo: number
+      price: 15.00     // Tipo: number
+    }
+  ]
 
-      <ProductCard
-        title="Bienvenido a la tienda"
-        description="Encuentra los mejores accesorios para tu escritorio"
-        price={1000}
+  return (
+    <main style={{ maxWidth: 480, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 20px' }}>
+      
+      {/* Caso 1: Pasando la lista de animales con un título personalizado */}
+      <AnimalesLista 
+        animales={listaDeMascotas} 
+        title="Mascotas Disponibles 🐾" 
       />
 
-      <ProductCard title="Oferta del día" description="Webcam HD con 20% de descuento"   />
+      <hr style={{ margin: '40px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
 
-      <ProductCard title="Novedades de la semana"/>
+      {/* Caso 2: Prueba de flujo cuando la lista está vacía (Array vacío) */}
+      <AnimalesLista 
+        animales={[]} 
+        title="Adopciones Urgentes" 
+      />
+
     </main>
   )
 }
