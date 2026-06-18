@@ -3,16 +3,16 @@
 import WelcomeBanner       from './components/WelcomeBanner'
 import UserGreeting        from './components/UserGreeting'
 import CurrentDateDisplay  from './components/CurrentDateDisplay'
-// import ColoredBox          from './components/ColoredBox'
-// import ConditionalGreeting from './components/ConditionalGreeting'
-// import FruitList           from './components/FruitList'
-// import PriceTag            from './components/PriceTag'
-// import StatusBadge         from './components/StatusBadge'
-// import MiniProfileCard     from './components/MiniProfileCard'
-// import SimpleInfoTable     from './components/SimpleInfoTable'
-// import ProductCard         from './components/ProductCard'
-// import ProductCatalogList  from './components/ProductCatalogList'
-// import UserProfileCard     from './components/UserProfileCard'
+import ColoredBox          from './components/ColoredBox'
+import ConditionalGreeting from './components/ConditionalGreeting'
+import FruitList           from './components/FruitList'
+import PriceTag            from './components/PriceTag'
+import StatusBadge         from './components/StatusBadge'
+import MiniProfileCard     from './components/MiniProfileCard'
+import SimpleInfoTable     from './components/SimpleInfoTable'
+import ProductCard         from './components/ProductCard'
+import ProductCatalogList  from './components/ProductCatalogList'
+import UserProfileCard     from './components/UserProfileCard'
 
 // ┌──────────────────────────────────────────────────────────────────────────┐
 // │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.          │
@@ -30,12 +30,16 @@ import CurrentDateDisplay  from './components/CurrentDateDisplay'
 // │  12  ProductCatalogList  — lista con renderizado condicional de items   │
 // │  13  UserProfileCard     — ejercicio: props complejas + rol             │
 // └──────────────────────────────────────────────────────────────────────────┘
-const PASO = 3
+const PASO = 5
 
 const fruits = [
-  { name: 'Manzana', emoji: '🍎', calories: 52 },
-  { name: 'Banana',  emoji: '🍌', calories: 89 },
-  { name: 'Naranja', emoji: '🍊', calories: 47 },
+  { name: 'Manzana',   emoji: '🍎', calories: 52, inSeason: true },
+  { name: 'Banana',    emoji: '🍌', calories: 89, inSeaasn: true },
+  { name: 'Naranja',   emoji: '🍊', calories: 47, inSeason: true },
+  { name: 'Uva',       emoji: '🥭', calories: 60, inSeason: true },
+  { name: 'Berengena', emoji: '🍇 ', calories: 64, inSeason: true },
+  { name: 'Manzana Verde', emoji: '🍏', calories: 42, inSeason: true },
+  { name: 'Piña',          emoji: '🍍', calories: 41, inSeason: true },
 ]
 
 const catalog = [
@@ -47,70 +51,83 @@ const catalog = [
 
 export default function App() {
   const content =
-    PASO ===  1 ? <WelcomeBanner /> :
-    PASO ===  2 ? <><UserGreeting name="Ana García" occupation="Desarrolladora Frontend" /></> :
+    PASO ===  1 ? <WelcomeBanner  subtitle='Programadores Estrellas'/> :
+    PASO ===  2 ? <UserGreeting name="Ana García" occupation="Desarrolladora Frontend" /> :
     PASO ===  3 ? <CurrentDateDisplay /> :
-    // PASO ===  4 ? (
-    //   <div style={{ display: 'flex', gap: 12 }}>
-    //     <ColoredBox color="#0070f3" label="Primary" />
-    //     <ColoredBox color="#22c55e" label="Success" />
-    //     <ColoredBox color="#e00"    label="Danger" />
-    //   </div>
-    // ) :
-    // PASO ===  5 ? <ConditionalGreeting isLoggedIn={true} userName="Ana" timeOfDay="afternoon" /> :
-    // PASO ===  6 ? <FruitList fruits={fruits} title="Frutas favoritas" /> :
-    // PASO ===  7 ? (
-    //   <div style={{ display: 'flex', gap: 24, alignItems: 'flex-end' }}>
-    //     <PriceTag amount={99.99} currency="USD" />
-    //     <PriceTag amount={99.99} currency="USD" discountPercent={20} />
-    //   </div>
-    // ) :
-    // PASO ===  8 ? (
-    //   <div style={{ display: 'flex', gap: 8 }}>
-    //     <StatusBadge status="active" />
-    //     <StatusBadge status="pending" />
-    //     <StatusBadge status="error" />
-    //     <StatusBadge status="inactive" />
-    //   </div>
-    // ) :
-    // PASO ===  9 ? (
-    //   <MiniProfileCard
-    //     fullName="Ana García"
-    //     role="Senior Developer"
-    //     department="Ingeniería"
-    //     status="active"
-    //     joinedYear={2019}
-    //   />
-    // ) :
-    // PASO === 10 ? (
-    //   <SimpleInfoTable
-    //     title="Resumen del pedido"
-    //     rows={[
-    //       { label: 'Subtotal',  value: '$89.99' },
-    //       { label: 'Envío',     value: '$5.00' },
-    //       { label: 'Total',     value: '$94.99', highlight: true },
-    //     ]}
-    //   />
-    // ) :
-    // PASO === 11 ? <ProductCard title="Teclado inalámbrico" description="Bluetooth 5.0, retroiluminado" highlighted /> :
-    // PASO === 12 ? <ProductCatalogList products={catalog} title="Productos disponibles" /> :
-    // PASO === 13 ? (
-    //   <UserProfileCard
-    //     fullName="Ana García"
-    //     email="ana@ejemplo.com"
-    //     role="admin"
-    //     isActive={true}
-    //     skills={['TypeScript', 'React', 'Node.js']}
-    //     bio="Desarrolladora fullstack con 5 años de experiencia."
-    //   />
-    // ) :
+    PASO ===  4 ? (
+       <div style={{ display: 'flex', gap: 12 }}>
+         <ColoredBox color="#0070f3" label="Primary" />
+         <ColoredBox color="#22c55e" label="Success" />
+         <ColoredBox color="#e00"    label="Danger" />
+       </div>
+     ) :
+    PASO ===  5 ? <ConditionalGreeting isLoggedIn={true} userName="Ana" timeOfDay="afternoon" /> :
+    PASO ===  6 ? <FruitList fruits={fruits} title="Frutas favoritas" /> :
+    PASO ===  7 ? (
+      <div style={{ display: 'flex', gap: 24, alignItems: 'flex-end' }}>
+        <PriceTag amount={99.99} currency="USD" />
+        <PriceTag amount={99.99} currency="USD" discountPercent={20} />
+      </div>
+    ) :
+    PASO ===  8 ? (
+      <div style={{ display: 'flex', gap: 8 }}>
+        <StatusBadge status="active" />
+        <StatusBadge status="pending" />
+        <StatusBadge status="error" />
+        <StatusBadge status="inactive" label='Inactivation' />
+      </div>
+    ) :
+    PASO ===  9 ? (
+      <MiniProfileCard
+        fullName="Ana García"
+        role="Senior Developer"
+        department="Ingeniería"
+        status="active"
+        joinedYear={2019}
+      />
+    ) :
+    PASO === 10 ? (
+      <SimpleInfoTable
+        title="Resumen del pedido"
+        rows={[
+          { label: 'Subtotal',  value: '$89.99' },
+          { label: 'Envío',     value: '$5.00' },
+          { label: 'Total',     value: '$94.99', highlight: true },
+        ]}
+      />
+    ) :
+    PASO === 11 ? <VehiculosTable
+    title="Resumen del pedido"
+    row={[
+       { label: 'Marca',  value: '$89.99' },
+       { label: 'Modelo',     value: '$5.00' },
+       { label: 'Cilindraje',     value: '$94.99', highlight: true },
+    ]}
+     Marca="" description="Bluetooth 5.0, retroiluminado" highlighted 
+    /> :
+
+
+
+
+
+
+
+    PASO === 12 ? <ProductCatalogList products={catalog} title="Productos disponibles" /> :
+    PASO === 13 ? (
+      <UserProfileCard
+        fullName="Ana García"
+        email="ana@ejemplo.com"
+        role="admin"
+        isActive={true}
+        skills={['TypeScript', 'React', 'Node.js']}
+        bio="Desarrolladora fullstack con 5 años de experiencia."
+      />
+    ) :
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (
     <main style={{ maxWidth: 540, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 16px' }}>
       {content}
-      <UserGreeting name="Ana García" occupation="Desarrolladora Frontend" />
-      <UserGreeting name="Luis Mora" />
     </main>
   )
 }
