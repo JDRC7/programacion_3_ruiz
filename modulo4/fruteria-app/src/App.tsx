@@ -13,6 +13,8 @@ import SimpleInfoTable     from './components/SimpleInfoTable'
 import ProductCard         from './components/ProductCard'
 import ProductCatalogList  from './components/ProductCatalogList'
 import UserProfileCard     from './components/UserProfileCard'
+import DigitalCounter      from './components/DigitalCounter'
+import UserProfileForm     from './components/UserProfileForm'
 
 // ┌──────────────────────────────────────────────────────────────────────────┐
 // │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.          │
@@ -29,12 +31,14 @@ import UserProfileCard     from './components/UserProfileCard'
 // │  11  ProductCard         — interfaz de props con opcionales y booleanas │
 // │  12  ProductCatalogList  — lista con renderizado condicional de items   │
 // │  13  UserProfileCard     — ejercicio: props complejas + rol             │
+// │  14  DigitalCounter      — Estado simple con incremento/decremento       │
+// │  15  UserProfileForm     — Formulario controlado con objeto de estado   │
 // └──────────────────────────────────────────────────────────────────────────┘
-const PASO = 5
+const PASO = 14 // Cambialo a 14 o 15 para ver tus nuevos componentes
 
 const fruits = [
   { name: 'Manzana',   emoji: '🍎', calories: 52, inSeason: true },
-  { name: 'Banana',    emoji: '🍌', calories: 89, inSeaasn: true },
+  { name: 'Banana',    emoji: '🍌', calories: 89, inSeason: true },
   { name: 'Naranja',   emoji: '🍊', calories: 47, inSeason: true },
   { name: 'Uva',       emoji: '🥭', calories: 60, inSeason: true },
   { name: 'Berengena', emoji: '🍇 ', calories: 64, inSeason: true },
@@ -96,22 +100,14 @@ export default function App() {
         ]}
       />
     ) :
-    PASO === 11 ? <VehiculosTable
-    title="Resumen del pedido"
-    row={[
-       { label: 'Marca',  value: '$89.99' },
-       { label: 'Modelo',     value: '$5.00' },
-       { label: 'Cilindraje',     value: '$94.99', highlight: true },
-    ]}
-     Marca="" description="Bluetooth 5.0, retroiluminado" highlighted 
-    /> :
-
-
-
-
-
-
-
+    PASO === 11 ? (
+      <ProductCard 
+        name="Auriculares Bluetooth" 
+        price={49.99} 
+        description="Bluetooth 5.0, retroiluminado" 
+        highlighted 
+      />
+    ) :
     PASO === 12 ? <ProductCatalogList products={catalog} title="Productos disponibles" /> :
     PASO === 13 ? (
       <UserProfileCard
@@ -122,6 +118,14 @@ export default function App() {
         skills={['TypeScript', 'React', 'Node.js']}
         bio="Desarrolladora fullstack con 5 años de experiencia."
       />
+    ) :
+    // CORREGIDO PASO 14: Se quitaron los 'const' de las props del JSX
+    PASO === 14 ? (
+      <DigitalCounter label="Contador Pro" step={1} initialValue={0} />
+    ) :
+    // AGREGADO PASO 15: Tu formulario de perfil dinámico
+    PASO === 15 ? (
+      <UserProfileForm />
     ) :
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
