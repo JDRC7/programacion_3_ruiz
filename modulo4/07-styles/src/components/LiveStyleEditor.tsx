@@ -1,5 +1,7 @@
+
 // src/components/LiveStyleEditor.tsx
 
+import { useState } from 'react'
 import { useStyles } from '../hooks/useStyles'
 
 export default function LiveStyleEditor() {
@@ -8,6 +10,14 @@ export default function LiveStyleEditor() {
     fontSize:   16,
     fontWeight: 400,
   })
+
+
+  const [bgColor, setBgColor] = useState('#ffffff')
+
+  const handleReset = () => {
+    reset()
+    setBgColor('#ffffff') // Resetea también el fondo a blanco
+  }
 
   return (
     <div style={{
@@ -23,11 +33,22 @@ export default function LiveStyleEditor() {
       {/* Controles */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 16 }}>
         <label style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 13, color: 'var(--muted)' }}>
-          Color
+          Color Texto
           <input
             type="color"
             defaultValue="#111827"
             onChange={e => setColor(e.target.value)}
+            style={{ width: 48, height: 32, border: 'none', cursor: 'pointer' }}
+          />
+        </label>
+
+        {}
+        <label style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 13, color: 'var(--muted)' }}>
+          Color Fondo
+          <input
+            type="color"
+            value={bgColor}
+            onChange={e => setBgColor(e.target.value)}
             style={{ width: 48, height: 32, border: 'none', cursor: 'pointer' }}
           />
         </label>
@@ -52,7 +73,7 @@ export default function LiveStyleEditor() {
         </label>
 
         <button
-          onClick={reset}
+          onClick={handleReset}
           style={{
             padding:      '4px 12px',
             border:       '1px solid var(--border)',
@@ -68,15 +89,22 @@ export default function LiveStyleEditor() {
         </button>
       </div>
 
-      {/* Preview en tiempo real */}
+      {}
       <div style={{
         padding:      12,
         border:       '1px dashed var(--border)',
         borderRadius: 8,
         background:   'var(--bg)',
       }}>
-        <p style={{ margin: 0, ...style }}>
-          Este texto cambia de estilo en tiempo real usando el hook useStyles.
+        {}
+        <p style={{ 
+          margin: 0, 
+          padding: '8px', 
+          borderRadius: '4px',
+          backgroundColor: bgColor, 
+          ...style 
+        }}>
+          Josue detona a el chismoso EDUARDO
         </p>
       </div>
     </div>

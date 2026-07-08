@@ -15,6 +15,7 @@ const DEFAULT: CSSProperties = {
   color:      '#111827',
   fontSize:   16,
   fontWeight: 400,
+  backgroundColor: '#ffffff',
 }
 
 export function useStyles(

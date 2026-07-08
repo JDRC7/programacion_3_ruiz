@@ -20,17 +20,17 @@ import './theme/theme.css'
 // │  6  HoverDemo            — hook useHover para efectos hover         │
 // │  7  ThemePanel           — Context + CSS variables para theming     │
 // └──────────────────────────────────────────────────────────────────────┘
-const PASO = 1
+const PASO = 5
 
 export default function App() {
   const content =
-    PASO === 1 ? <CssGlobalDemo /> :
+    /*PASO === 1 ? <CssGlobalDemo /> :
     PASO === 2 ? <InlineStyleDemo /> :
     PASO === 3 ? <CssModuleDemo /> :
-    PASO === 4 ? <StyledComponentsDemo /> :
-    PASO === 5 ? <LiveStyleEditor /> :
+    PASO === 4 ? <StyledComponentsDemo /> :*/
+    PASO === 5 ? <LiveStyleEditor /> :/*
     PASO === 6 ? <HoverDemo /> :
-    PASO === 7 ? <ThemePanel /> :
+    PASO === 7 ? <ThemePanel /> :*/
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (

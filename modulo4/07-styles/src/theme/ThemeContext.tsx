@@ -20,7 +20,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <ThemeContext value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div
         data-theme={theme}
         style={{
@@ -32,7 +32,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       >
         {children}
       </div>
-    </ThemeContext>
+    </ThemeContext.Provider>
   )
 }
 
