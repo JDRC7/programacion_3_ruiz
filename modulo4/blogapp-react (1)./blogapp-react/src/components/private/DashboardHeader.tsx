@@ -35,8 +35,8 @@ export default function DashboardHeader() {
           <span className="text-sm font-medium">{user?.username ?? 'Cargando...'}</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start">
-          <DropdownMenuItem asChild>
-            <Link to="/perfil">Mi perfil</Link>
+          <DropdownMenuItem>
+            <Link to="/perfil" className="block w-full">Mi perfil</Link>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleLogout}>Salir</DropdownMenuItem>
         </DropdownMenuContent>
