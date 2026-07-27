@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dietética NutriVida - Pedidos</title>
+    <script src="dom04-eventos.js" defer></script>
+    <style>
+        .boton {
+            padding: 10px 20px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }  
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Atención de Pedidos y Consultas</h1>
+
+    <h2 onclick="cambiarBotonDesdeH2(this)" style="cursor: pointer; color: #2e7d32;">
+        ¿Buscas pan fresco de masa madre o sin TACC? (Haz clic para verificar)
+    </h2>
+    <button class="boton" id="botonDinamico">Consultar Disponibilidad</button>
+
+    <br><br>
+
+    <button class="boton" id="btm" onclick="cambiarTextoTitulo(this)">Ver Cupón de Regalo</button>
+    
+    <br><br>
+
+    <button class="boton" id="btn2" onclick="agregarProducto()">Agregar Almendras al Pedido</button>
+    <ul id="lista-productos1"></ul>
+    
+    <button class="boton" id="btn3">Agregar Proteína Vegetal</button>
+    <ul id="lista-productos2"></ul>
+</body>
+</html>

@@ -1,0 +1,156 @@
+/* Reseteo básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f0fdf4; /* Verde muy claro de fondo */
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+.cabecera-principal {
+    background-color: #15803d; /* Verde oscuro saludable */
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+.cabecera-principal h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+.navegacion {
+    background-color: #166534;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.navegacion a {
+    color: #f0fdf4;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.navegacion a:hover {
+    color: #bbf7d0;
+}
+
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Alineación Flexbox para las tarjetas */
+.contenedor-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.tarjeta-producto {
+    background-color: white;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: calc(50% - 1rem); /* Dos columnas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-producto h2 {
+    color: #166534;
+    margin-bottom: 1rem;
+}
+
+.tarjeta-producto ul {
+    margin: 1rem 0 1rem 1.5rem;
+}
+
+/* Estilos de la Tabla */
+.seccion-tabla {
+    margin-bottom: 3rem;
+}
+
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tabla-datos th, .tabla-datos td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tabla-datos th {
+    background-color: #22c55e;
+    color: white;
+}
+
+/* Estilos del Formulario Interactivos */
+.panel-interactivo {
+    background-color: #dcfce7;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid #15803d;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+.panel-interactivo label {
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #166534;
+}
+
+.panel-interactivo input {
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid #86efac;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn-accion {
+    background-color: #15803d;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-accion:hover {
+    background-color: #166534;
+}
+
+.mensaje-alerta {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.pie-pagina {
+    background-color: #1f2937;
+    color: #d1d5db;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
