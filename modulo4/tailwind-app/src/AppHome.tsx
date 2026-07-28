@@ -6,15 +6,17 @@ import TwFooter from './components/tw/TwFooter'
 import HomeTW   from './pages/HomeTW'
 import AboutTW  from './pages/AboutTW'
 import ContactUs from './pages/ContactUs'
+import AppLab    from './AppLab'
 
 export default function AppHome() {
   return (
     <BrowserRouter>
       <TwNavbar />
       <Routes>
-        <Route path="/"      element={<HomeTW />} />
-        <Route path="/about" element={<AboutTW />} />
+        <Route path="/"        element={<HomeTW />} />
+        <Route path="/about"   element={<AboutTW />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/lab"     element={<AppLab />} />
       </Routes>
       <TwFooter />
     </BrowserRouter>

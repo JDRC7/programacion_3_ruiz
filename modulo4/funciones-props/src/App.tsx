@@ -2,21 +2,11 @@
 
 import { useState } from 'react'
 import DigitalCounter      from './components/DigitalCounter'
+import SafeCounter         from './components/SafeCounter'
 import UserProfileForm     from './components/UserProfileForm'
 import TaskManager         from './components/TaskManager'
-import SafeCounter from './components/SafeCounter'
 import ShoppingCartSummary from './components/ShoppingCartSummary'
-import CatalogProductItem from './components/CatalogProductItem'
-
-// ┌──────────────────────────────────────────────────────────────────────┐
-// │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.      │
-// │  1  DigitalCounter    — estado numérico con step y reset            │
-// │  2  SafeCounter       — forma funcional prev => prev + 1            │
-// │  3  UserProfileForm   — estado con objeto + spread update           │
-// │  4  TaskManager       — estado con array: filter, map, spread       │
-// │  5  Carrito useState  — array de objetos + lógica en App.tsx        │
-// └──────────────────────────────────────────────────────────────────────┘
-const PASO = 5
+import CatalogProductItem  from './components/CatalogProductItem'
 
 interface CartItem { id: number; name: string; price: number }
 
@@ -39,35 +29,70 @@ export default function App() {
     setCartItems([])
   }
 
-  const content =
-    PASO === 1 ? <DigitalCounter label="Contador" step={1} /> :
-    PASO === 2 ? <SafeCounter /> :
-    PASO === 3 ? <UserProfileForm /> :
-    PASO === 4 ? <TaskManager /> :
-    PASO === 5 ? (
-      <>
-       <h1 style={{ fontSize: 22 }}>Tienda</h1>
-       <section>
+  return (
+    <main style={{ maxWidth: 520, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 16px' }}>
+      <h1 style={{ textAlign: 'center', marginBottom: 32 }}>Ejercicios de useState</h1>
+
+      {/* --- PASO 1 --- */}
+      <section style={{ marginBottom: 28 }}>
+        <h3>1. DigitalCounter</h3>
+        <DigitalCounter label="Contador" step={1} />
+      </section>
+
+      <hr style={separatorStyle} />
+
+      {/* --- PASO 2 --- */}
+      <section style={{ marginBottom: 28 }}>
+        <h3>2. SafeCounter</h3>
+        <SafeCounter />
+      </section>
+
+      <hr style={separatorStyle} />
+
+      {/* --- PASO 3 --- */}
+      <section style={{ marginBottom: 28 }}>
+        <h3>3. UserProfileForm</h3>
+        <UserProfileForm />
+      </section>
+
+      <hr style={separatorStyle} />
+
+      {/* --- PASO 4 --- */}
+      <section style={{ marginBottom: 28 }}>
+        <h3>4. TaskManager</h3>
+        <TaskManager />
+      </section>
+
+      <hr style={separatorStyle} />
+
+      {/* --- PASO 5 --- */}
+      <section style={{ marginBottom: 28 }}>
+        <h3>5. Carrito de Compras</h3>
+        
+        <h4 style={{ margin: '12px 0 8px' }}>Catálogo</h4>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
           {catalog.map((p) => (
             <CatalogProductItem
               key={p.id}
-             id={p.id}
+              id={p.id}
               name={p.name}
               price={p.price}
               onAddToCart={handleAddToCart}
-           />
+            />
           ))}
-        </section>
-        <ShoppingCartSummary 
-        items={cartItems} 
-        onClearCart={handleClearCart} />
-      </>
-    ) :
-    <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
+        </div>
 
-  return (
-    <main style={{ maxWidth: 480, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 16px' }}>
-      {content}
+        <ShoppingCartSummary 
+          items={cartItems} 
+          onClearCart={handleClearCart} 
+        />
+      </section>
     </main>
   )
+}
+
+const separatorStyle = {
+  margin: '30px 0',
+  border: 'none',
+  borderTop: '1px dashed #ccc',
 }

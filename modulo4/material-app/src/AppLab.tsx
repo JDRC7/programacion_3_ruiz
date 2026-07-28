@@ -1,45 +1,75 @@
 // src/AppLab.tsx
 
-import { useState } from 'react'
-import { Box, AppBar, Toolbar, Typography, Tabs, Tab, Container } from '@mui/material'
+import { Box, AppBar, Toolbar, Typography, Container, Divider } from '@mui/material'
 import LabMuiButtons from './lab/LabMuiButtons'
 import LabMuiAlert   from './lab/LabMuiAlert'
 import LabMuiCard    from './lab/LabMuiCard'
 import LabMuiForm    from './lab/LabMuiForm'
 import LabMuiTable   from './lab/LabMuiTable'
 
-type LabKey = 0 | 1 | 2 | 3 | 4
-
-const LAB_LABELS = ['Buttons', 'Alert', 'Cards', 'Form', 'Table']
-
 export default function AppLab() {
-  const [tab, setTab] = useState<LabKey>(0)
-
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', pb: 6 }}>
+      {/* Barra superior */}
       <AppBar position="static" color="primary">
-        <Toolbar sx={{ gap: 2 }}>
-          <Typography variant="h6" fontWeight={700} sx={{ whiteSpace: 'nowrap' }}>
-            Material UI v7 LAB
+        <Toolbar>
+          <Typography variant="h6" fontWeight={700}>
+            Material UI v7 LAB - Vista Completa
           </Typography>
-          <Tabs
-            value={tab}
-            onChange={(_, v: LabKey) => setTab(v)}
-            textColor="inherit"
-            indicatorColor="secondary"
-          >
-            {LAB_LABELS.map((label, i) => (
-              <Tab key={label} label={label} value={i as LabKey} />
-            ))}
-          </Tabs>
         </Toolbar>
       </AppBar>
-      <Container sx={{ py: 3 }}>
-        {tab === 0 && <LabMuiButtons />}
-        {tab === 1 && <LabMuiAlert />}
-        {tab === 2 && <LabMuiCard />}
-        {tab === 3 && <LabMuiForm />}
-        {tab === 4 && <LabMuiTable />}
+
+      {/* Contenido continuo */}
+      <Container sx={{ py: 4, display: 'flex', flexDirection: 'column', gap: 5 }}>
+        
+        {/* --- 1. BUTTONS --- */}
+        <Box>
+          <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: 'primary.main' }}>
+            1. Buttons
+          </Typography>
+          <LabMuiButtons />
+        </Box>
+
+        <Divider />
+
+        {/* --- 2. ALERT --- */}
+        <Box>
+          <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: 'primary.main' }}>
+            2. Alert
+          </Typography>
+          <LabMuiAlert />
+        </Box>
+
+        <Divider />
+
+        {/* --- 3. CARDS --- */}
+        <Box>
+          <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: 'primary.main' }}>
+            3. Cards
+          </Typography>
+          <LabMuiCard />
+        </Box>
+
+        <Divider />
+
+        {/* --- 4. FORM --- */}
+        <Box>
+          <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: 'primary.main' }}>
+            4. Form
+          </Typography>
+          <LabMuiForm />
+        </Box>
+
+        <Divider />
+
+        {/* --- 5. TABLE --- */}
+        <Box>
+          <Typography variant="h5" fontWeight={600} gutterBottom sx={{ color: 'primary.main' }}>
+            5. Table
+          </Typography>
+          <LabMuiTable />
+        </Box>
+
       </Container>
     </Box>
   )
