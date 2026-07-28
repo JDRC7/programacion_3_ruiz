@@ -9,34 +9,64 @@ import DebounceSearch   from './components/DebounceSearch'
 import FetchUser        from './components/FetchUser'
 import AutoFocusInput   from './components/AutoFocusInput'
 
-// ┌──────────────────────────────────────────────────────────────────────┐
-// │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.      │
-// │  1  DocumentTitle    — useEffect con array vacío, limpia al desmontar│
-// │  2  OnlineStatus     — subscripción a eventos online/offline         │
-// │  3  WindowSize       — evento resize con estado objeto tipado        │
-// │  4  LiveClock        — setInterval con inicializador perezoso        │
-// │  5  SearchWithEffect — efecto con dependencia, búsqueda sincronizada │
-// │  6  DebounceSearch   — setTimeout/clearTimeout, patrón debounce      │
-// │  7  FetchUser        — fetch real, loading/error, flag cancelled      │
-// │  8  AutoFocusInput   — useRef + useEffect para foco imperativo       │
-// └──────────────────────────────────────────────────────────────────────┘
-const PASO = 8
-
 export default function App() {
-  const content =
-    PASO === 1 ? <DocumentTitle /> :
-    PASO === 2 ? <OnlineStatus /> :
-    PASO === 3 ? <WindowSize /> :
-    PASO === 4 ? <LiveClock /> :
-    PASO === 5 ? <SearchWithEffect /> :
-    PASO === 6 ? <DebounceSearch /> :
-    PASO === 7 ? <FetchUser /> :
-    PASO === 8 ? <AutoFocusInput /> :
-    <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
-
   return (
-    <main style={{ maxWidth: 600, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 16px' }}>
-      {content}
+    <main style={{ maxWidth: 650, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 16px' }}>
+      <h1 style={{ textAlign: 'center', marginBottom: 32 }}>Ejercicios de useEffect</h1>
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>1. DocumentTitle</h3>
+        <DocumentTitle />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>2. OnlineStatus</h3>
+        <OnlineStatus />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>3. WindowSize</h3>
+        <WindowSize />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>4. LiveClock</h3>
+        <LiveClock />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>5. SearchWithEffect</h3>
+        <SearchWithEffect />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>6. DebounceSearch</h3>
+        <DebounceSearch />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>7. FetchUser</h3>
+        <FetchUser />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>8. AutoFocusInput</h3>
+        <AutoFocusInput />
+      </section>
     </main>
   )
 }

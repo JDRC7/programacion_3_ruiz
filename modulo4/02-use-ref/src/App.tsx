@@ -1,28 +1,40 @@
 // src/App.tsx
 
 import AutoFocusForm from './components/AutoFocusForm'
-import Stopwatch from './components/Stopwatch'
-import InlineEditor from './components/InlineEditor'
+import Stopwatch     from './components/Stopwatch'
+import InlineEditor  from './components/InlineEditor'
 import PreviousValue from './components/PreviousValue'
-// ┌──────────────────────────────────────────────────────────────────────┐
-// │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.       │
-// │  1  AutoFocusForm    — foco automático y salto de campo con Enter   │
-// │  2  Stopwatch        — interval guardado en ref, sin re-renders     │
-// │  3  InlineEditor     — leer un input sin useState (ref no controlado)│
-// │  4  PreviousValue    — guardar el valor anterior de un input        │
-// └──────────────────────────────────────────────────────────────────────┘
-const PASO = 4
 
 export default function App() {
-  const content = PASO === 1 ? <AutoFocusForm /> :
-  PASO === 2 ? <Stopwatch /> :
-  PASO === 3 ? <InlineEditor /> :
-  PASO === 4 ? <PreviousValue /> :
-    <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
-
   return (
-    <main style={{ maxWidth: 500, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 16px' }}>
-      {content}
+    <main style={{ maxWidth: 550, margin: '40px auto', fontFamily: 'sans-serif', padding: '0 16px' }}>
+      <h1 style={{ textAlign: 'center', marginBottom: 32 }}>Ejercicios de useRef</h1>
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>1. AutoFocusForm</h3>
+        <AutoFocusForm />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>2. Stopwatch</h3>
+        <Stopwatch />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>3. InlineEditor</h3>
+        <InlineEditor />
+      </section>
+
+      <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px dashed #ccc' }} />
+
+      <section style={{ marginBottom: 30 }}>
+        <h3>4. PreviousValue</h3>
+        <PreviousValue />
+      </section>
     </main>
   )
 }
